@@ -11,23 +11,13 @@
         <h1>Custom Interval Beep</h1>
         <form action="/" method="post">
             <label for="interval">Enter Interval (seconds):</label>
-            <input type="number" id="interval" name="interval" step="0.1" min="0.1" value="1">
-            <button type="submit">Start</button>
+            <input type="number" id="interval" name="interval" step="0.1" min="0.1" value="{{ interval }}">
+            {% if is_beeping %}
+                <button type="submit" name="stop">Stop</button>
+            {% else %}
+                <button type="submit" name="start">Start</button>
+            {% endif %}
         </form>
     </div>
-
-    <script>
-        const form = document.querySelector('form');
-        form.addEventListener('submit', (event) => {
-            event.preventDefault();
-            const interval = parseFloat(document.getElementById('interval').value);
-            const formData = new FormData();
-            formData.append('interval', interval);
-            fetch('/', {
-                method: 'POST',
-                body: formData
-            });
-        });
-    </script>
 </body>
 </html>
