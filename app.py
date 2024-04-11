@@ -12,7 +12,7 @@ def beep_thread():
     global is_beeping
     while not stop_event.is_set():
         if is_beeping:
-            winsound.Beep(1000, 100)  # You can adjust the frequency and duration of the beep here
+            winsound.Beep(1000, 100)  # Adjust frequency and duration of the beep here
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -30,3 +30,4 @@ def index():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
