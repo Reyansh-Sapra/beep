@@ -63,20 +63,15 @@
 <body>
     <div class="container">
         <h1>Custom Interval Beep</h1>
-        <form action="/set_interval" method="post">
+        <form action="/start" method="post">
             <label for="interval">Enter Interval (seconds):</label>
             <input type="number" id="interval" name="interval" step="0.1" min="0.1" value="{{ interval }}">
-            <button type="submit">Set Interval</button>
+            <button type="submit">Start</button>
         </form>
-        <button onclick="startBeep()">Start</button>
         <button onclick="stopBeep()">Stop</button>
     </div>
 
     <script>
-        function startBeep() {
-            fetch('/start', { method: 'POST' });
-        }
-
         function stopBeep() {
             fetch('/stop', { method: 'POST' });
         }
